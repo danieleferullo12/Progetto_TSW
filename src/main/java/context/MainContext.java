@@ -3,18 +3,19 @@ package context;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
-import javax.sql.DataSource;
 
 
 @WebListener
 public class MainContext implements ServletContextListener{
 	
 	
-	public void contextInizialized(ServletContextEvent sce) {
+	public void contextInitialized(ServletContextEvent sce) {
 		ServletContext context = sce.getServletContext();
 		DataSource ds = null;
 		try {

@@ -9,5 +9,5 @@
 		maxWaitMillis="10000"
         username="root"
         password="Danielefer"
-        url="jdbc:mysql://localhost:3306/storage?serverTimezone=UTC"/>
+        url="jdbc:mysql://localhost:3306/PuntoFit?serverTimezone=UTC"/>
 </Context>
