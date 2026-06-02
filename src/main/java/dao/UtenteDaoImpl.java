@@ -40,7 +40,7 @@ public class UtenteDaoImpl implements UtenteDao{
     }
 	
 	 @Override
-	    public synchronized boolean doDelete(int code) throws SQLException {
+	    public  boolean doDelete(int code) throws SQLException {
 	        String deleteSQL = "DELETE FROM Utente WHERE code = ?";
 	        try (Connection connection = ds.getConnection();
 	        		PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
@@ -75,7 +75,7 @@ public class UtenteDaoImpl implements UtenteDao{
 	 }
 	 
 	  @Override
-	    public synchronized List<UtenteBean> doRetrieveAll(String order) throws SQLException {
+	    public List<UtenteBean> doRetrieveAll(String order) throws SQLException {
 	        List<UtenteBean> utenti = new LinkedList<>();
 	        String selectSQL = "SELECT * FROM Utente";
 	        if (order != null && !order.isEmpty()) {
@@ -99,7 +99,7 @@ public class UtenteDaoImpl implements UtenteDao{
 	        }
 	        return utenti;
 	    }
-	  
+	  @Override
 	  public UtenteBean doRetreveByEmailPass(String email, String password) throws SQLException{
 		  
 		  UtenteBean bean=null;
@@ -128,4 +128,23 @@ public class UtenteDaoImpl implements UtenteDao{
 	        return bean;  
 	  }
 	
+	  public void doUpdate(UtenteBean bean) throws SQLException {
+		    String sql = "UPDATE Utente SET nome = ?, cognome = ?, email = ?, "
+		               + "password_hash = ?, ruolo = ?, indirizzo_spedizione = ?, telefono=? WHERE id_utente = ?";
+		    
+		    try (Connection con = ds.getConnection(); 
+		         PreparedStatement ps = con.prepareStatement(sql)) {
+		        
+		        ps.setString(1, bean.getNome());
+		        ps.setString(2, bean.getCognome());
+		        ps.setString(3, bean.getEmail());
+		        ps.setString(4, bean.getPasswordHash());
+		        ps.setString(5, bean.getRuolo()); 
+		        ps.setString(6, bean.getIndirizzoSpedizione());
+		        ps.setString(7, bean.getTelefono());
+		        ps.setInt(8,bean.getIdUtente());
+		        
+		        ps.executeUpdate();
+		    }
+		}
 }

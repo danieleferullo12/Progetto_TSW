@@ -8,6 +8,5 @@ public interface ProdottoDao extends Dao<ProdottoBean>{
   
 	public Collection<ProdottoBean> doRetreveByCategoria(int idCategoria) throws SQLException;
 	
-	public boolean doUpdateImage(String url)throws SQLException;
 	
 }

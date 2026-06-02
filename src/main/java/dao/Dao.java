@@ -7,6 +7,8 @@ public interface Dao <T>{
 	
 	public void doSave(T bean) throws SQLException;
 	
+	public void doUpdate(T bean) throws SQLException;
+	
 	public boolean doDelete(int code) throws SQLException;
 	
     public T doRetrieveByKey(int code) throws SQLException;

@@ -11,8 +11,8 @@ public class ProdottoBean implements Serializable{
 	private String nome;
 	private String descrizione;
 	private double prezzo;
-	private int quantitàDisp;
-	private String immagine_url;
+	private int quantitaDisp;
+	private String immagineUrl;
 	private int idCategoria;
 	
 	public ProdottoBean() {
@@ -50,20 +50,20 @@ public class ProdottoBean implements Serializable{
 		this.prezzo = prezzo;
 	}
 
-	public int getQuantitàDisp() {
-		return quantitàDisp;
+	public int getQuantitaDisp() {
+		return quantitaDisp;
 	}
 
-	public void setQuantitàDisp(int quantitàDisp) {
-		this.quantitàDisp = quantitàDisp;
+	public void setQuantitaDisp(int quantitàDisp) {
+		this.quantitaDisp = quantitàDisp;
 	}
 
-	public String getImmagine_url() {
-		return immagine_url;
+	public String getImmagineUrl() {
+		return immagineUrl;
 	}
 
-	public void setImmagine_url(String immagine_url) {
-		this.immagine_url = immagine_url;
+	public void setImmagineUrl(String immagine_url) {
+		this.immagineUrl = immagine_url;
 	}
 
 	public int getIdCategoria() {
