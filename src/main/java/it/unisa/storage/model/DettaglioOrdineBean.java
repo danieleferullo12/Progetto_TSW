@@ -10,7 +10,7 @@ public class DettaglioOrdineBean implements Serializable{
 	private int idDettaglio;
 	private int idOrdine;
 	private int idProdotto;
-	private int quantità;
+	private int quantita;
 	private double prezzoUnitario;
 	
 	
@@ -48,13 +48,13 @@ public class DettaglioOrdineBean implements Serializable{
 	}
 
 
-	public int getQuantità() {
-		return quantità;
+	public int getQuantita() {
+		return quantita;
 	}
 
 
-	public void setQuantità(int quantità) {
-		this.quantità = quantità;
+	public void setQuantita(int quantita) {
+		this.quantita = quantita;
 	}
 
 

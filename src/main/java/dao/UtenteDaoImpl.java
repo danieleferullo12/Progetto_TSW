@@ -41,7 +41,7 @@ public class UtenteDaoImpl implements UtenteDao{
 	
 	 @Override
 	    public  boolean doDelete(int code) throws SQLException {
-	        String deleteSQL = "DELETE FROM Utente WHERE code = ?";
+	        String deleteSQL = "DELETE FROM Utente WHERE id_utente = ?";
 	        try (Connection connection = ds.getConnection();
 	        		PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
 	            preparedStatement.setInt(1, code);
@@ -54,7 +54,7 @@ public class UtenteDaoImpl implements UtenteDao{
 	 @Override
 	public UtenteBean doRetrieveByKey(int code) throws SQLException{
 		 UtenteBean bean = new UtenteBean();
-	        String selectSQL = "SELECT * FROM Utente WHERE code = ?";
+	        String selectSQL = "SELECT * FROM Utente WHERE id_utente = ?";
 	        try (Connection connection = ds.getConnection();
 	        		PreparedStatement preparedStatement = connection.prepareStatement(selectSQL)) {
 	            preparedStatement.setInt(1, code);

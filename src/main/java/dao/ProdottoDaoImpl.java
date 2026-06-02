@@ -41,7 +41,7 @@ public class ProdottoDaoImpl implements ProdottoDao{
 	
 	 @Override
 	    public  boolean doDelete(int code) throws SQLException {
-	        String deleteSQL = "DELETE FROM Prodotto WHERE code = ?";
+	        String deleteSQL = "DELETE FROM Prodotto WHERE id_prodotto = ?";
 	        try (Connection connection = ds.getConnection();
 	        		PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
 	            preparedStatement.setInt(1, code);
@@ -54,7 +54,7 @@ public class ProdottoDaoImpl implements ProdottoDao{
 	 @Override
 	public ProdottoBean doRetrieveByKey(int code) throws SQLException{
 		 ProdottoBean bean = new ProdottoBean();
-	        String selectSQL = "SELECT * FROM Prodotto WHERE code = ?";
+	        String selectSQL = "SELECT * FROM Prodotto WHERE id_prodotto = ?";
 	        try (Connection connection = ds.getConnection();
 	        		PreparedStatement preparedStatement = connection.prepareStatement(selectSQL)) {
 	            preparedStatement.setInt(1, code);
