@@ -4,7 +4,7 @@
 <header>
 
  <div id="logo">
-  <a href="index.jsp"><img  src="images/logo.png" alt="Logo"></a>
+  <a href="index.jsp"><img  src="images/Logo.png" alt="Logo"></a>
  </div> 
 
  <div id="serach-bar">
