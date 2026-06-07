@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Punto Fit</title>
+<link type="text/css" rel="stylesheet" href="style/style.css">
 </head>
 <body>
 

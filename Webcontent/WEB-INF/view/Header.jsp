@@ -4,10 +4,10 @@
 <header>
 
  <div id="logo">
-  <a href="index.jsp"><img  src="images/Logo.png" alt="Logo"></a>
+  <a href="index.jsp"><img  src="images/Logo.png" alt="Logo" width=250px height=200px></a>
  </div> 
 
- <div id="serach-bar">
+ <div id="search-bar">
  
   <form action="RicercaServlet" method="Get">
   <input type="text" name="search" placeholder="Cerca nel negozio...">
@@ -27,7 +27,7 @@
    <li><a href="">PROTEINE</a>
    <li><a href="">ABBIGLIAMENTO</a>
    <li><a href="">ACCESSORI</a>
-   <li><a href="">ALIMENTAZIIONE</a>
+   <li><a href="">ALIMENTAZIONE</a>
   
   </ul>
   </nav>
