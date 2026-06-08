@@ -14,12 +14,11 @@
 <section id="main">
 
   <section class="hero-banner">
-   <h1>Spingi oltre i tuoi limiti</h1>
-   <p>Scopri i migliori integratori per il tuo allenamento su PuntoFit.</p>
+  <img src="images/banner.png" alt="banner">
   </section>
   
   <section class="prodotti">
-  <h2>Prodotti in evidenza</h2>
+  <h2>Prodotti in Evidenza</h2>
   <div class="product-card">
  
   <h3>Proteine Whey 1kg</h3>

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 
-
+/*HEADER*/
 
 #logo a img{
 	  height: 70px;
@@ -38,11 +38,13 @@
  }
 
 
-#actions{
+#actions a img{
 	position: absolute;
     right: 20px;
     top: 50px;
 }
+
+
 
 nav{
 	
@@ -71,5 +73,16 @@ a:hover{
 	
 	color:#0D0D0D;
 }
+
+/*HEADER*/
+
+
+/*INDEX*/
+
+
+
+
+
+
 
 

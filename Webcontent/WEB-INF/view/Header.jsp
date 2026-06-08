@@ -17,8 +17,8 @@
  </div>
 
    <div id="actions">
-   <a href="login.jsp">Log In</a>
-   <a href="carrello.jsp">Carrello</a>
+   <a href="login.jsp"><img src="images/login.png" alt="login" width="50px" height="50px"></a>
+   <a href="carrello.jsp"><img src="images/carrello.png" alt="carrello" width="50px" height="50px"></a>
 
    </div>
 
