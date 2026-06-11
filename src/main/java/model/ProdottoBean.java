@@ -1,4 +1,4 @@
-package it.unisa.storage.model;
+package model;
 
 import java.io.Serializable;
 

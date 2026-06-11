@@ -1,7 +1,8 @@
 package dao;
 
-import it.unisa.storage.model.OrdineBean;
 import java.sql.SQLException;
+
+import model.OrdineBean;
 
 public interface OrdineDao extends Dao<OrdineBean>{
 	

@@ -1,14 +1,14 @@
 package dao;
 
-import it.unisa.storage.model.CategoriaBean;
-
-
 import java.sql.Connection;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
+
+import model.CategoriaBean;
+
 import java.util.LinkedList;
 
 

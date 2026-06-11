@@ -2,7 +2,8 @@ package dao;
 
 import java.sql.SQLException;
 import java.util.Collection;
-import it.unisa.storage.model.ProdottoBean;
+
+import model.ProdottoBean;
 
 public interface ProdottoDao extends Dao<ProdottoBean>{
   

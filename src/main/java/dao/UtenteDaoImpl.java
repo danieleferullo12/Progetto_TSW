@@ -6,9 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
-import java.util.LinkedList;
 
-import it.unisa.storage.model.UtenteBean;
+import model.UtenteBean;
+
+import java.util.LinkedList;
 
 public class UtenteDaoImpl implements UtenteDao{
 

@@ -1,6 +1,6 @@
 package dao;
 
-import it.unisa.storage.model.DettaglioOrdineBean;
+import model.DettaglioOrdineBean;
 
 
 public interface DettaglioOrdineDao extends Dao<DettaglioOrdineBean>{}

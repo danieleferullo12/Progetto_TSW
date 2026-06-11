@@ -1,13 +1,14 @@
 package dao;
 
-import it.unisa.storage.model.ProdottoBean;
-
 import java.sql.Connection;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
+
+import model.ProdottoBean;
+
 import java.util.LinkedList;
 
 public class ProdottoDaoImpl implements ProdottoDao{
