@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, model.*" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +19,37 @@
   </section>
   
   <section class="prodotti">
-  <h2>Prodotti in Evidenza</h2>
-  <div class="product-card">
- 
-  <h3>Proteine Whey 1kg</h3>
-   <p class="prezzo">29.99 €</p>
-  <a href="#" class="btn-add">Aggiungi al carrello</a>
+  <div class="order">
+  <label for="orderSelect">Ordina Per</label>
+  <select id="orderSelect">
+  <option value="prodotto">Seleziona</option>
+  
+  <option value="prodotto?order=prezzo">Prezzo:Crescente</option>
+  <option value="prodotto?order=prezzo DESC">Prezzo:Decrescente</option>
+  <option value="prodotto?order=nome">Nome</option>
+  </select>
   </div>
- 
+  <h2>Prodotti in Evidenza</h2>
+  
+     
+     <% 
+        List<ProdottoBean> lista=(List<ProdottoBean>) request.getAttribute("prodotti");  
+        
+        if(lista!=null){
+        
+        for(ProdottoBean p: lista){	
+     %>
+        
+        <div class="product-card">
+          <img src="images/prodotti/<%=p.getImmagineUrl()%>" alt="<%=p.getNome()%>" width="215px" height="215px">
+          <h3><%=p.getNome()%></h3>
+          <p id="prezzo"><%=p.getPrezzo()%>€<p>
+          <a href="#">Aggiungi al Carrello</a>   
+        </div>
+      <% 
+        }
+      } 
+      %>
   </section>
   
 </section>

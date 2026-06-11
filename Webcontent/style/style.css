@@ -76,8 +76,30 @@ a:hover{
 
 /*INDEX*/
 
+.prodotti {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 30px auto; 
+    text-align: center; 
+}
 
 
+.product-card {
+    display: inline-block; 
+    vertical-align: top;   
+    
+    width: 30%;         
+    margin: 15px 1.5%;    
+    
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-sizing: border-box; 
+}
+ 
+ 
 
 
 
