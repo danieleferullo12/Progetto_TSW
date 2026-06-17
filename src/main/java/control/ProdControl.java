@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 
 import dao.ProdottoDao;
 import dao.ProdottoDaoImpl;
-import model.CarrelloBean;
+
 
 
 @WebServlet("/prodotto")
@@ -34,13 +34,6 @@ public class ProdControl extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		CarrelloBean cart=(CarrelloBean) request.getSession().getAttribute("cart");
-		
-		if(cart==null) {
-			
-			cart=new CarrelloBean();
-			request.getSession().setAttribute("cart", cart);
-		}  	
 		 	loadProdList(request);
 			
 			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/WEB-INF/view/index.jsp");
