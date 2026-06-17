@@ -38,10 +38,9 @@
  }
 
 
-#actions a img{
-	position: absolute;
-    right: 20px;
-    top: 50px;
+#actions a {
+	float:right;
+	text-decoration:none;
 }
 
 

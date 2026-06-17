@@ -33,7 +33,7 @@ public class CarrelloControl extends HttpServlet {
 		prodottoDao = new ProdottoDaoImpl(ds);
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
 	  
 		CarrelloBean cart=(CarrelloBean) request.getSession().getAttribute("cart");
 		
@@ -43,14 +43,14 @@ public class CarrelloControl extends HttpServlet {
 		request.getSession().setAttribute("cart", cart);
 		}
 		
-		actions(request,response,cart);
+		actions(request,cart);
 		request.getSession().setAttribute("cart", cart);
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/WEB-INF/view/carrello.jsp");
 		dispatcher.forward(request, response);
 	}
 	
-	private void actions(HttpServletRequest request,HttpServletResponse response, CarrelloBean cart) {
+	private void actions(HttpServletRequest request ,CarrelloBean cart) {
 		
 		String action=request.getParameter("action");
 	try {
@@ -58,7 +58,7 @@ public class CarrelloControl extends HttpServlet {
 			
 			if(action.equalsIgnoreCase("add")) {
 				
-				addProdtoCart(request,cart);
+				addProdtoCart(request, cart);
 			}
 			
 			else if(action.equalsIgnoreCase("remove")) {
@@ -74,17 +74,18 @@ public class CarrelloControl extends HttpServlet {
 	 }
 	}
 	
-	private void addProdtoCart(HttpServletRequest request,CarrelloBean cart)throws SQLException {
+	private void addProdtoCart(HttpServletRequest request, CarrelloBean cart)throws SQLException{
 		
 		int code=Integer.parseInt(request.getParameter("code"));
 		cart.addProd(prodottoDao.doRetrieveByKey(code));
 	}
 	
-	private void removeProdfromCart(HttpServletRequest request,CarrelloBean cart)throws SQLException {
+	private void removeProdfromCart(HttpServletRequest request, CarrelloBean cart)throws SQLException{
 		
 		int code=Integer.parseInt(request.getParameter("code"));
 		
 		cart.deleteProd(prodottoDao.doRetrieveByKey(code));
+		
 	}
 	
 	
