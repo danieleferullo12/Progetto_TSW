@@ -23,7 +23,7 @@
 
    <div class="carrello-vuoto">
      
-     <p>Il tuo Carrello è vuoto</p>
+     <p>Il tuo Carrello è vuoto, torna allo <a href="prodotto">shopping</a></p>
    
    </div>
 
@@ -37,8 +37,33 @@
        <th>Totale</th>
        <th>Operazioni</th>
      </tr> 
+     
+     <%   
+       if(cart!=null){
+    	   
+    	   List<ElementoCarBean> prodotti=cart.getProd();
+    	   
+    	   if(prodotti!=null && !prodotti.isEmpty()){
+    		   
+    		   for(ElementoCarBean elem:prodotti){
+    		    
+    			 ProdottoBean p=elem.getProdotto();
+    			 int q=elem.getQuant();	  
+     %>
+     <tr>
+       <td><img src="images/prodotti/<%=p.getImmagineUrl()%>" width="85" height="85" alt="<%=p.getNome()%>"></td>
+       <td><%=p.getNome()%></td>
+       <td><%=p.getPrezzo() %></td>
+       <td><%=q %></td> 
+       <td><%=p.getPrezzo()*q%></td>
+       <td><a href="carrello?action=add&code=<%=p.getIdProdotto()%>">+</a>
+           <a href="carrello?action=remove&code=<%=p.getIdProdotto()%>">-</a>
+     </tr>
+    <% } %>
+   <%}%> 
+  <%}%>
+ <%}%> 
    </table>
-<% } %>
 </section>
   <jsp:include page="Footer.jsp"/>
 </body>

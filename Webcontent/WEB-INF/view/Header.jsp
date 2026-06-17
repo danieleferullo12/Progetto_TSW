@@ -4,7 +4,7 @@
 <header>
 
  <div id="logo">
-  <a href="index.jsp"><img  src="images/Logo.png" alt="Logo" width=250px height=200px></a>
+  <a href="prodotto"><img  src="images/Logo.png" alt="Logo" width=250px height=200px></a>
  </div> 
 
  <div id="search-bar">
@@ -18,7 +18,7 @@
 
    <div id="actions">
    <a href="login.jsp">Login in</a>
-   <a href="carrello.jsp">Carrello</a>
+   <a href="carrello">Carrello</a>
 
    </div>
 

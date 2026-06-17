@@ -1,32 +1,46 @@
 package model;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
-
 public class CarrelloBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-	List<ProdottoBean> prodotti;
+	private List<ElementoCarBean> prodotti;
+	
 	
 	public CarrelloBean() {
 		
-		prodotti=new ArrayList<ProdottoBean>();
+		prodotti=new ArrayList<ElementoCarBean>();
 	}
 	
 	public void addProd(ProdottoBean prod) {
 		
-		prodotti.add(prod);
+		for(ElementoCarBean elem: prodotti) {
+			
+			if(elem.getProdotto().getIdProdotto()==prod.getIdProdotto()) {
+				
+				elem.setQuant(elem.getQuant()+1);
+				return;
+			}
+			
+		}
+		
+		prodotti.add(new ElementoCarBean(prod,1));
+		
 	}
    
 	public void deleteProd(ProdottoBean prod) {
 		
-		for(ProdottoBean prodotto: prodotti) {
+		for(ElementoCarBean elem: prodotti) {
 			
-			if(prodotto.getIdProdotto()==prod.getIdProdotto()) {
+			if(elem.getProdotto().getIdProdotto()==prod.getIdProdotto()) {
 				
-				prodotti.remove(prodotto);
+				prodotti.remove(elem);
+				
+				return;
 			}
 			
 		}
@@ -34,7 +48,7 @@ public class CarrelloBean implements Serializable{
 		
 	}
 	
-	public List<ProdottoBean> getProd(){
+	public List<ElementoCarBean> getProd(){
 		
 		return prodotti;
 	}

@@ -1,5 +1,6 @@
 package control;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -42,12 +43,14 @@ public class CarrelloControl extends HttpServlet {
 		request.getSession().setAttribute("cart", cart);
 		}
 		
-		actions(request,cart);
+		actions(request,response,cart);
 		request.getSession().setAttribute("cart", cart);
 		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/WEB-INF/view/carrello.jsp");
+		dispatcher.forward(request, response);
 	}
 	
-	private void actions(HttpServletRequest request,CarrelloBean cart) {
+	private void actions(HttpServletRequest request,HttpServletResponse response, CarrelloBean cart) {
 		
 		String action=request.getParameter("action");
 	try {
@@ -61,6 +64,7 @@ public class CarrelloControl extends HttpServlet {
 			else if(action.equalsIgnoreCase("remove")) {
 				
 			    removeProdfromCart(request,cart);
+			  
 			}
 			
 		}
