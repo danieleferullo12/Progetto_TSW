@@ -17,9 +17,10 @@
  </div>
 
    <div id="actions">
-   <a href="login.jsp">Login in</a>
-   <a href="carrello">Carrello</a>
-
+   <ul>
+    <li><a href="login.jsp">Login</a>
+    <li><a href="carrello">Carrello</a>
+   </ul>
    </div>
 
   <nav>

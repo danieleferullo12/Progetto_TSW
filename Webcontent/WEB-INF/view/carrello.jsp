@@ -31,6 +31,7 @@
  
    <table class="tabella-prod">
      <tr>
+       <th></th>
        <th>Prodotto</th>
        <th>Prezzo</th>
        <th>Quantità</th>
@@ -57,7 +58,8 @@
        <td><%=q %></td> 
        <td><%=p.getPrezzo()*q%></td>
        <td><a href="carrello?action=add&code=<%=p.getIdProdotto()%>">+</a>
-           <a href="carrello?action=remove&code=<%=p.getIdProdotto()%>">-</a>
+           <a href="carrello?action=removesing&code=<%=p.getIdProdotto()%>">-</a>
+           <a href="carrello?action=remove&code=<%=p.getIdProdotto()%>">x</a>
      </tr>
     <% } %>
    <%}%> 

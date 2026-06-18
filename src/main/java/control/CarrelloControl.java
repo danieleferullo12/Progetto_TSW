@@ -67,6 +67,11 @@ public class CarrelloControl extends HttpServlet {
 			  
 			}
 			
+			else if(action.equalsIgnoreCase("removesing")) {
+				
+				removeSinglefromCart(request,cart);
+			}
+			
 		}
 	 } catch(SQLException e) {
 		 
@@ -85,6 +90,13 @@ public class CarrelloControl extends HttpServlet {
 		int code=Integer.parseInt(request.getParameter("code"));
 		
 		cart.deleteProd(prodottoDao.doRetrieveByKey(code));
+		
+	}
+	
+	private void removeSinglefromCart(HttpServletRequest request,CarrelloBean cart)throws SQLException {
+		
+		int code=Integer.parseInt(request.getParameter("code"));
+		 cart.deleteSingleProd(prodottoDao.doRetrieveByKey(code));
 		
 	}
 	

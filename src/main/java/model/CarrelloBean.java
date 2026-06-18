@@ -32,6 +32,30 @@ public class CarrelloBean implements Serializable{
 		
 	}
    
+	public void deleteSingleProd(ProdottoBean prod) {
+		
+		for(ElementoCarBean elem:prodotti) {
+			
+			if(elem.getProdotto().getIdProdotto()==prod.getIdProdotto()) {
+				
+				if(elem.getQuant()>1) {
+				elem.setQuant(elem.getQuant()-1);
+				return;
+				}
+				
+				else {
+					
+					prodotti.remove(elem);
+					return;
+				}
+			}
+			
+		}
+		
+		
+	}
+	
+	
 	public void deleteProd(ProdottoBean prod) {
 		
 		for(ElementoCarBean elem: prodotti) {

@@ -18,18 +18,23 @@
   <img src="images/banner.png" alt="banner">
   </section>
   
+  
+  <h2>Scopri i prodotti in Evidenza</h2>
+  
   <section class="prodotti">
   <div class="order">
+  <form action="prodotto" method="get">
   <label for="orderSelect">Ordina Per</label>
-  <select id="orderSelect">
-  <option value="prodotto">Seleziona</option>
   
-  <option value="prodotto?order=prezzo">Prezzo:Crescente</option>
-  <option value="prodotto?order=prezzo DESC">Prezzo:Decrescente</option>
-  <option value="prodotto?order=nome">Nome</option>
+  <select id="orderSelect">
+  <option value="">Seleziona</option>
+  <option value="prezzo">Prezzo:Crescente</option>
+  <option value="prezzo DESC">Prezzo:Decrescente</option>
+  <option value="nome">Nome</option>
   </select>
+  <button type="submit">Ordina</button>
+  </form>
   </div>
-  <h2>Prodotti in Evidenza</h2>
   
      
      <% 
