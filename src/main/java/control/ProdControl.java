@@ -36,7 +36,7 @@ public class ProdControl extends HttpServlet {
 		
 		 	loadProdList(request);
 			
-			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/WEB-INF/view/index.jsp");
+			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/view/index.jsp");
 			dispatcher.forward(request,response);
 		
 		

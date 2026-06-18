@@ -18,7 +18,7 @@
 
    <div id="actions">
    <ul>
-    <li><a href="login.jsp">Login</a>
+    <li><a href="login">Login</a>
     <li><a href="carrello">Carrello</a>
    </ul>
    </div>

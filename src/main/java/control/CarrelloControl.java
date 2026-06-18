@@ -46,7 +46,7 @@ public class CarrelloControl extends HttpServlet {
 		actions(request,cart);
 		request.getSession().setAttribute("cart", cart);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/WEB-INF/view/carrello.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/view/carrello.jsp");
 		dispatcher.forward(request, response);
 	}
 	
