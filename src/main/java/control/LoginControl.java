@@ -85,7 +85,7 @@ public class LoginControl extends HttpServlet {
 			else {
 				
 				request.getSession().setAttribute("role","client");
-				response.sendRedirect(request.getContextPath() + "index");
+				response.sendRedirect(request.getContextPath() + "prodotto");
 				
 			}
 			

@@ -32,7 +32,7 @@ if (errors != null){
 
 <div>
 <label for="pass">Password</label>
-<input type="text" id="pass" name="password">
+<input type="password" id="pass" name="password">
 <span id="errorPass"></span>
 </div>
 
@@ -42,9 +42,6 @@ if (errors != null){
 </div>
 
 </form>
-
-
-
 
 <jsp:include page="Footer.jsp"/>
 </body>

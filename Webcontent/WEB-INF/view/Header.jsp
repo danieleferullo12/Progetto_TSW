@@ -18,7 +18,20 @@
 
    <div id="actions">
    <ul>
+    <% 
+      String role=(String) session.getAttribute("role");
+      if(role==null){
+   %>
     <li><a href="login">Login</a>
+    <%
+        } else{
+    %>
+       <li><a href="logout">Logout</a>
+    
+    <%
+       }
+    %>
+    
     <li><a href="carrello">Carrello</a>
    </ul>
    </div>
