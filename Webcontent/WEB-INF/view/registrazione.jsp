@@ -4,9 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Registrazione</title>
+<link rel="stylesheet" type="text/css" href="styleForm.css" />
+<script src="scripts/validate.js"></script>
 </head>
 <body>
+
+<% 
+     String errorReg=(String) request.getAttribute("errorReg");
+     
+     if(errorReg!=null){
+%> 
+    <div id="errorReg">
+     <%= errorReg %>
+    
+    </div>
+  
+ <% } %>
+
 
 <form id="reg" action="registrazione" method="post">
 
@@ -46,7 +61,7 @@
 </div>
 
 <div>
-<input type="submit" value="Registrati">
+<input type="submit" value="Registrati" onclick="return validate()">
 </div>
 
 

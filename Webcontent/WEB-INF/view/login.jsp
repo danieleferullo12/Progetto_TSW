@@ -43,6 +43,13 @@ if (errors != null){
 
 </form>
 
+<div id="nonReg">
+
+<p>Se non sei registrato puoi farlo <a href="registrazione">qui</a>
+
+</div>
+
+
 <jsp:include page="Footer.jsp"/>
 </body>
 </html>
