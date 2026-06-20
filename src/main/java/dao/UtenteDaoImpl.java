@@ -23,7 +23,7 @@ public class UtenteDaoImpl implements UtenteDao{
 	@Override
 	public void doSave(UtenteBean bean) throws SQLException{
 		
-		String insertSQL = "INSERT INTO Utente (nome,cognome,email,password_hash,ruolo,indirizzo_spedizione,telefono)VALUES (?,?,?,?,?,?,?,?,?)";
+		String insertSQL = "INSERT INTO Utente (nome,cognome,email,password_hash,ruolo,indirizzo_spedizione,telefono)VALUES (?,?,?,?,?,?,?)";
 		
 		try(Connection connection = ds.getConnection();
 				

@@ -9,7 +9,6 @@
 <script src="scripts/validate.js"></script>
 </head>
 <body>
-
 <% 
      String errorReg=(String) request.getAttribute("errorReg");
      
@@ -21,6 +20,7 @@
     </div>
   
  <% } %>
+
 
 
 <form id="reg" action="registrazione" method="post">
@@ -45,7 +45,8 @@
 
 <div>
 <label for="pass">Password</label>
-<input type="password" id="pass" name="password">
+<input type="password" id="pass" name="password" onchange="validateForm(this,passPattern,document.getElementById('errorPass'),passErr)">
+<span id="errorPass"></span>
 </div>
 
 <div>
