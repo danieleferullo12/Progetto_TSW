@@ -180,8 +180,71 @@ h2{
    
  }
  
+ /*FORMS*/
+ 
+ 
+ 
+ #logCont{
+   max-width:450px;
+   height:150px;
+   margin:50px auto; 
+   padding:30px;
+   border: 1px solid #e9f2c9;
+   border-radius: 8px;
+   font-family:arial,sans-serif;
+ 
+ }
+ 
+ 
+ #regCont{
+   
+    max-width:450px;
+   height:150px;
+   margin:50px auto; 
+   padding:30px;
+   border: 1px solid #e9f2c9;
+   border-radius: 8px;
+   font-family:arial,sans-serif;
+ 
+ }
+ 
+ 
+#email-field input{
+	
+	border-radius:4px;
+	border-width:thin;
+	width:350px;
+	height:30px;
+}
 
+#pass-field input{
+	
+	border-radius:4px;
+	border-width:thin;
+	width:350px;
+	height:30px;
+	
+	
+}
 
+#button-log button{
+	
+	width: 100%;
+    padding: 12px;
+    background-color: #b1bf41;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+	
+	
+}
 
-
+#nonReg a{
+	
+	text-decoration:none;
+    color:#B1BF41;
+}
 

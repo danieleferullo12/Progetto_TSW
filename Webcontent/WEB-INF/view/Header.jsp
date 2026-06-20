@@ -26,7 +26,7 @@
     <%
         } else{
     %>
-       <li><a href="logout">Logout</a>
+       <li><a href="Logout">Logout</a>
     
     <%
        }

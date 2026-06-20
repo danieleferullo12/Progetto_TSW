@@ -18,15 +18,8 @@ public class LogoutControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String role=(String) request.getSession().getAttribute("role");
-		
-		if(role!=null) {
-			
-			request.getSession().invalidate();
-		}
-		
-		response.sendRedirect(request.getContextPath() + "prodotto");
-		
+	   request.getSession().invalidate();
+	   response.sendRedirect(request.getContextPath() + "/prodotto");
 	}
 
 	

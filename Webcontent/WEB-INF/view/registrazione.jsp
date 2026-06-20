@@ -5,10 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Registrazione</title>
-<link rel="stylesheet" type="text/css" href="styleForm.css" />
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/style/style.css">
 <script src="scripts/validate.js"></script>
 </head>
 <body>
+<jsp:include page="Header.jsp"/>
 <% 
      String errorReg=(String) request.getAttribute("errorReg");
      
@@ -25,6 +26,8 @@
 
 <form id="reg" action="registrazione" method="post">
 
+<div id="regCont">
+
 <div>
 <label for="nome">Nome</label>
 <input type="text" id="nome" name="nome" onchange="validateForm(this, nomeoCognPattern, document.getElementById('errorNome'), nomeErr)">
@@ -37,13 +40,13 @@
 <span id="errorCognome"></span>
 </div>
 
-<div>
+<div id="email-field">
 <label for="email">E-mail</label>
 <input type="text" id="email" name="email" onchange="validateForm(this, emailPattern, document.getElementById('errorEmail'), emailErr)">
 <span id="errorEmail"></span>
 </div>
 
-<div>
+<div id="pass-field">
 <label for="pass">Password</label>
 <input type="password" id="pass" name="password" onchange="validateForm(this,passPattern,document.getElementById('errorPass'),passErr)">
 <span id="errorPass"></span>
@@ -61,12 +64,14 @@
 <span id="errorInd"></span>
 </div>
 
-<div>
-<input type="submit" value="Registrati" onclick="return validate()">
+<div id="button-log">
+<button type="submit" onclick="return validate()">Registrati</button>
 </div>
 
+</div>
 
 </form>
 
+<jsp:include page="Footer.jsp"/>
 </body>
 </html>
