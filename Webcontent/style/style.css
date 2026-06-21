@@ -147,6 +147,15 @@ h2{
     box-sizing: border-box; 
 }
  
+ 
+ /*FOOTER*/
+ #footer{
+ 
+  font-family:arial,sans-serif;
+  text-align:center;
+  
+ }
+ 
  /*CARRELLO*/
  
  .carrello-vuoto p{
@@ -186,7 +195,7 @@ h2{
  
  #logCont{
    max-width:450px;
-   height:150px;
+   height:310px;
    margin:50px auto; 
    padding:30px;
    border: 1px solid #e9f2c9;
@@ -198,8 +207,8 @@ h2{
  
  #regCont{
    
-    max-width:450px;
-   height:150px;
+   max-width:450px;
+   height:370px;
    margin:50px auto; 
    padding:30px;
    border: 1px solid #e9f2c9;
@@ -207,12 +216,49 @@ h2{
    font-family:arial,sans-serif;
  
  }
- 
+ #nome-field input{
+	
+	border-radius:4px;
+	border: 1px solid #e9f2c9;
+	width:350px;
+	height:30px;
+}
+
+#nome-field,#cognome-field,#email-field,#pass-field,#tel-field,#ind-field{
+	
+	padding-bottom:10px;
+	
+}
+
+#cognome-field input{
+	
+	border-radius:4px;
+	border: 1px solid #e9f2c9;
+	width:350px;
+	height:30px;
+	
+}
+#tel-field input{
+	
+	border-radius:4px;
+	border: 1px solid #e9f2c9;
+	width:350px;
+	height:30px;
+	
+}
+#ind-field input{
+	
+	border-radius:4px;
+	border: 1px solid #e9f2c9;
+	width:350px;
+	height:30px;
+	
+}
  
 #email-field input{
 	
 	border-radius:4px;
-	border-width:thin;
+	border: 1px solid #e9f2c9;
 	width:350px;
 	height:30px;
 }
@@ -220,10 +266,9 @@ h2{
 #pass-field input{
 	
 	border-radius:4px;
-	border-width:thin;
+	border: 1px solid #e9f2c9;
 	width:350px;
 	height:30px;
-	
 	
 }
 
@@ -246,5 +291,13 @@ h2{
 	
 	text-decoration:none;
     color:#B1BF41;
+}
+
+#errorLog{
+	
+	text-align:center;
+	color:red;
+	font-family:arial,sans-serif;
+	
 }
 

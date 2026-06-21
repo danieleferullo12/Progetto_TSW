@@ -27,14 +27,14 @@
 <form id="reg" action="registrazione" method="post">
 
 <div id="regCont">
-
-<div>
+<h2>Crea un nuovo account Cliente</h2>
+<div id="nome-field">
 <label for="nome">Nome</label>
 <input type="text" id="nome" name="nome" onchange="validateForm(this, nomeoCognPattern, document.getElementById('errorNome'), nomeErr)">
 <span id="errorNome"></span>
 </div>
 
-<div>
+<div id="cognome-field">
 <label for="cognome">Cognome</label>
 <input type="text" id="cognome" name="cognome" onchange="validateForm(this, nomeoCognPattern, document.getElementById('errorCognome'), cognErr)">
 <span id="errorCognome"></span>
@@ -52,13 +52,13 @@
 <span id="errorPass"></span>
 </div>
 
-<div>
+<div id="tel-field">
 <label for="tel">Telefono</label>
 <input type="text" id="tel" name="telefono" onchange="validateForm(this, telefonoPattern, document.getElementById('errorTel'), telErr)">
 <span id="errorTel"></span>
 </div>
 
-<div>
+<div id="ind-field">
 <label for="indirizzo">Indirizzo</label>
 <input type="text" id="indirizzo" name="indirizzo" onchange="validateForm(this, indirizzoPattern, document.getElementById('errorInd'), indErr)">
 <span id="errorInd"></span>
