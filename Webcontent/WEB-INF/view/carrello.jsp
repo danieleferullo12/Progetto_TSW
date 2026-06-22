@@ -11,9 +11,9 @@
 <body>
 <jsp:include page="Header.jsp"/>
 
-<section id="main">
 
-<h2>Il tuo Carrello</h2>
+
+<h2 id="titolo">Il tuo Carrello</h2>
 
 <%  
     CarrelloBean cart= (CarrelloBean) session.getAttribute("cart");
@@ -29,6 +29,8 @@
 
  <%} else { %>
  
+ 
+ 
    <table class="tabella-prod">
      <tr>
        <th></th>
@@ -40,6 +42,8 @@
      </tr> 
      
      <%   
+       double totale=0;
+     
        if(cart!=null){
     	   
     	   List<ElementoCarBean> prodotti=cart.getProd();
@@ -49,14 +53,17 @@
     		   for(ElementoCarBean elem:prodotti){
     		    
     			 ProdottoBean p=elem.getProdotto();
-    			 int q=elem.getQuant();	  
+    			 int q=elem.getQuant();	 
+    			 
+    			 double totaleProdotto=p.getPrezzo()*q;
+    			 totale+= totaleProdotto;
      %>
      <tr>
        <td><img src="images/prodotti/<%=p.getImmagineUrl()%>" width="85" height="85" alt="<%=p.getNome()%>"></td>
        <td><%=p.getNome()%></td>
-       <td><%=p.getPrezzo() %></td>
+       <td><%=String.format("%.2f €", p.getPrezzo()) %></td>
        <td><%=q %></td> 
-       <td><%=p.getPrezzo()*q%></td>
+       <td><%=String.format("%.2f €", totaleProdotto)%></td>
        <td><a href="carrello?action=add&code=<%=p.getIdProdotto()%>">+</a>
            <a href="carrello?action=removesing&code=<%=p.getIdProdotto()%>">-</a>
            <a href="carrello?action=remove&code=<%=p.getIdProdotto()%>">x</a>
@@ -64,9 +71,30 @@
     <% } %>
    <%}%> 
   <%}%>
+  </table>
+  
+  <div id="repilogo">
+  <h3>Repilogo Ordine</h3>
+  <div id="numero">
+   <span>Numero di prodotti:</span>
+   <span><%=cart.getProd().size()%></span><br>
+  </div>
+  
+  <div id="totale">
+   <span>Totale:</span>
+   <span><%=String.format("%.2f €",totale)%></span>
+  </div>
+  
+  <div id="bottone">
+    <a href="checkout">Vai al Checkout</a>
+  </div>
+ 
+  </div>
+  
+  
  <%}%> 
-   </table>
-</section>
+  
+
   <jsp:include page="Footer.jsp"/>
 </body>
 </html>
