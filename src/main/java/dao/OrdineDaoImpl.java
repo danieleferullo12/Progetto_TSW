@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Statement;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,10 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import model.OrdineBean;
+import model.CarrelloBean;
+import model.ElementoCarBean;
+import model.ProdottoBean;
+
 
 import java.util.LinkedList;
 
@@ -26,6 +31,8 @@ public class OrdineDaoImpl implements OrdineDao{
 		
 		String insertSQL = "INSERT INTO Ordine (data_ordine,stato_ordine,totale,id_utente)VALUES (?,?,?,?)";
 		
+		
+		
 		try(Connection connection = ds.getConnection();
 				
 			PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
@@ -35,6 +42,45 @@ public class OrdineDaoImpl implements OrdineDao{
             preparedStatement.setInt(4, bean.getIdUtente());
             
             preparedStatement.executeUpdate();
+               
+        }
+    }
+	
+public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
+		
+		String insertSQL = "INSERT INTO Ordine (data_ordine,stato_ordine,totale,id_utente)VALUES (?,?,?,?)";
+		String dettaglioSQL="INSERT INTO Dettaglio_Ordine (id_ordine,id_prodotto,quantita,prezzo_unitario)VALUES (?,?,?,?)";
+		
+		
+		try(Connection connection = ds.getConnection();
+				
+			PreparedStatement preparedStatement = connection.prepareStatement(insertSQL,Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setDate(1, bean.getDataOrdine());
+            preparedStatement.setString(2, bean.getStato());
+            preparedStatement.setDouble(3, bean.getTotale());
+            preparedStatement.setInt(4, bean.getIdUtente());
+            
+            preparedStatement.executeUpdate();
+            
+            int idOrdineGenerato = -1;
+            ResultSet rs=preparedStatement.getGeneratedKeys();
+            if (rs.next()) {
+                idOrdineGenerato = rs.getInt(1); 
+            }
+            
+            PreparedStatement psDettaglio=connection.prepareStatement(dettaglioSQL);
+            List<ElementoCarBean> prodotti = cart.getProd();
+               
+            for (ElementoCarBean elem : prodotti) {
+                ProdottoBean p = elem.getProdotto();
+                
+                psDettaglio.setInt(1, idOrdineGenerato);     
+                psDettaglio.setInt(2, p.getIdProdotto());     
+                psDettaglio.setDouble(3, p.getPrezzo());      
+                psDettaglio.setInt(4, elem.getQuant());       
+                
+                psDettaglio.executeUpdate();
+            }
         }
     }
 	

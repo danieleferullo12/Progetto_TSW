@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebFilter("/admin/*")
-public class AuthFilter extends HttpFilter {
+@WebFilter("/common/*")
+public class CommonFilther extends HttpFilter {
        
 	private static final long serialVersionUID = 1L;
 	
@@ -31,9 +31,9 @@ public class AuthFilter extends HttpFilter {
 		
 		if(role!=null) {
 			
-			if(path.startsWith("/admin/")) {
+			if(path.startsWith("/common/")) {
 				
-				autorizzato=role.equals("admin");
+				autorizzato=role.equals("client") || role.equals("admin");
 				
 			}
 		 }
@@ -43,7 +43,7 @@ public class AuthFilter extends HttpFilter {
 		   }
 		   else {
 			   
-			   response.sendRedirect(request.getContextPath() + "/prodotto");
+			   response.sendRedirect(request.getContextPath() + "/login");
 		   }
 
 	}

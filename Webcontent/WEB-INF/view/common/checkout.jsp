@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="model.*" %>       
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,9 @@
 <script src="scripts/validate.js"></script>
 </head>
 <body>
-<jsp:include page="../Header.jsp"/>
+<%  
+   UtenteBean utente=(UtenteBean) session.getAttribute("utente");
+%>
 
 <form id="checkout" action="checkout" method="post">
 <div id="checkCont">
@@ -18,19 +21,19 @@
 
 <div id="email-field">
 <label for="email">E-mail</label>
-<input type="text" id="email" name="email" onchange="validateForm(this, emailPattern, document.getElementById('errorEmail'), emailErr)">
+<input type="text" id="email" name="email" value="<%=utente.getEmail()%>" onchange="validateForm(this, emailPattern, document.getElementById('errorEmail'), emailErr)">
 <span id="errorEmail"></span>
 </div>
 
 <div id="tel-field">
 <label for="tel">Telefono</label>
-<input type="text" id="tel" name="telefono" onchange="validateForm(this, telefonoPattern, document.getElementById('errorTel'), telErr)">
+<input type="text" id="tel" name="telefono" value="<%=utente.getTelefono()%>" onchange="validateForm(this, telefonoPattern, document.getElementById('errorTel'), telErr)">
 <span id="errorTel"></span>
 </div>
 
 <div id="ind-field">
 <label for="indirizzo">Indirizzo</label>
-<input type="text" id="indirizzo" name="indirizzo" onchange="validateForm(this, indirizzoPattern, document.getElementById('errorInd'), indErr)">
+<input type="text" id="indirizzo" name="indirizzo" value="<%=utente.getIndirizzoSpedizione()%>"  onchange="validateForm(this, indirizzoPattern, document.getElementById('errorInd'), indErr)">
 <span id="errorInd"></span>
 </div>
 

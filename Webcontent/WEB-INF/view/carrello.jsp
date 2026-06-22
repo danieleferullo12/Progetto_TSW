@@ -86,7 +86,7 @@
   </div>
   
   <div id="bottone">
-    <a href="checkout">Vai al Checkout</a>
+    <a href="common/checkout">Vai al Checkout</a>
   </div>
  
   </div>
