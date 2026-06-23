@@ -32,7 +32,17 @@
 <th>Data</th>
 <th>Stato</th>
 <th>Totale</th>
+<th>Prodotto</th>
+<th>Quantità</th>
+<th>Prezzo Unitario</th>
 </tr>
+
+<%
+    if(ordini!=null){
+
+
+
+%>
 
 
 </table>
