@@ -95,6 +95,30 @@ public class DettaglioOrdineImpl implements DettaglioOrdineDao{
 	        return dettagli;
 	    }
 	  
+	  public List<DettaglioOrdineBean> doRetrieveByIdOrdine(int idOrdine)throws SQLException{
+		  
+		  List<DettaglioOrdineBean> dettagli=new LinkedList<>();
+		  String selectSQL="SELECT * FROM Dettaglio_Ordine WHERE id_ordine=?";
+		  
+		   try(Connection connection = ds.getConnection();
+				   
+				   PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+				   ResultSet rs = preparedStatement.executeQuery()){
+			   
+			   while(rs.next()) {
+				   
+				   DettaglioOrdineBean bean=new DettaglioOrdineBean();
+				   bean.setIdDettaglio(rs.getInt("id_dettaglio"));
+                   bean.setIdOrdine(rs.getInt("id_ordine"));
+                   bean.setIdProdotto(rs.getInt("id_prodotto"));
+                   bean.setQuantita(rs.getInt("quantita"));
+                   bean.setPrezzoUnitario(rs.getDouble("prezzo_unitario"));
+	               dettagli.add(bean);
+			   } 
+		   }
+		  return dettagli;
+	  }
+	  
 	  public void doUpdate(DettaglioOrdineBean bean) throws SQLException {
 		    String sql = "UPDATE Utente SET id_ordine = ?, id_prodotto = ?, quantita = ?, prezzo_unitario=? WHERE id_dettaglio = ?";
 		    
@@ -111,5 +135,6 @@ public class DettaglioOrdineImpl implements DettaglioOrdineDao{
 		        ps.executeUpdate();
 		    }
 		}
+	  
 	  
 }

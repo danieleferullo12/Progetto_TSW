@@ -64,6 +64,7 @@ public class ProfiloControl extends HttpServlet {
 		
 		request.getSession().setAttribute("ordini", ordini);
 		
+		
 	}
 	
 	

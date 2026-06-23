@@ -13,9 +13,10 @@
 
 
 <%  
-   OrdineBean ordine=(OrdineBean) session.getAttribute("ordine");
+   @SuppressWarnings("unchecked")
+   List<OrdineBean> ordini=(List<OrdineBean>) session.getAttribute("ordini");
 
-     if(ordine==null){
+     if(ordini==null || ordini.isEmpty()){
 %>
 
 <div id="ordine-vuoto">
@@ -33,11 +34,7 @@
 <th>Totale</th>
 </tr>
 
-<tr>
-<td><%=ordine.getDataOrdine()%></td>
-<td><%=ordine.getStato()%></td>
-<td><%=ordine.getTotale()%></td>
-</tr>
+
 </table>
  <%}%>
 

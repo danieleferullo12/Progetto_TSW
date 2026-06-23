@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 public class OrdineBean implements Serializable{
 
@@ -12,6 +13,7 @@ public class OrdineBean implements Serializable{
 	private String stato;
 	private double totale;
 	private int idUtente;
+	private List<DettaglioOrdineBean> dettagli;
 	
 	public OrdineBean(){		
 	}
@@ -60,7 +62,16 @@ public class OrdineBean implements Serializable{
 		return serialVersionUID;
 	}
 	
+	public List<DettaglioOrdineBean> getDettagli(){
+		
+		return dettagli;
+	}
 	
+	public void setDettagli(List<DettaglioOrdineBean> dettagli) {
+		
+		this.dettagli=dettagli;
+		
+	}
 	
 	
 }

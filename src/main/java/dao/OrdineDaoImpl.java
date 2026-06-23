@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 
+import model.DettaglioOrdineBean;
 import model.OrdineBean;
 import model.CarrelloBean;
 import model.ElementoCarBean;
@@ -161,6 +162,7 @@ public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
 		  
 		  List<OrdineBean> ordini = new LinkedList<>();
 		  String selectSQL="SELECT * FROM Ordine WHERE id_utente=?";
+		  String dettaglioSelect="SELECT * FROM Dettaglio_Ordine Where id_ordine=?";
 		  
 		  try (Connection connection = ds.getConnection();
 	        		PreparedStatement preparedStatement = connection.prepareStatement(selectSQL)) {
@@ -176,6 +178,27 @@ public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
 		                 bean.setStato(rs.getString("stato_ordine"));
 		                 bean.setTotale(rs.getDouble("totale"));
 		                 bean.setIdUtente(rs.getInt("id_utente"));
+		                 
+		                 List<DettaglioOrdineBean> dettagli=new LinkedList<>();
+		                 
+		                 try (PreparedStatement psDettaglio = connection.prepareStatement(dettaglioSelect)) {
+		                     psDettaglio.setInt(1, bean.getIdOrdine()); 
+		                     
+		                     try (ResultSet rsDettaglio = psDettaglio.executeQuery()) {
+		                         while (rsDettaglio.next()) {
+		                             DettaglioOrdineBean dBean = new DettaglioOrdineBean();
+		                             
+		                             dBean.setIdOrdine(rsDettaglio.getInt("id_ordine"));
+		                             dBean.setIdProdotto(rsDettaglio.getInt("id_prodotto"));
+		                             dBean.setQuantita(rsDettaglio.getInt("quantita"));
+		                             dBean.setPrezzoUnitario(rsDettaglio.getDouble("prezzo_unitario"));
+		                             
+		                             dettagli.add(dBean);
+		                         }
+		                     }
+		                 }
+		                 bean.setDettagli(dettagli);
+		                 
 		                 ordini.add(bean);
 	                }
 	            }
