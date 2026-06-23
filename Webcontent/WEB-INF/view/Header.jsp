@@ -4,7 +4,7 @@
 <header>
 
  <div id="logo">
-  <a href="prodotto"><img  src="images/Logo.png" alt="Logo" width=250px height=200px></a>
+  <a href="<%=request.getContextPath()%>/prodotto"><img  src="<%=request.getContextPath()%>/images/Logo.png" alt="Logo" width=250px height=200px></a>
  </div> 
 
  <div id="search-bar">

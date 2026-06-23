@@ -10,6 +10,9 @@
 <script src="scripts/validate.js"></script>
 </head>
 <body>
+<jsp:include page="../Header.jsp"/>
+
+
 <%  
    UtenteBean utente=(UtenteBean) session.getAttribute("utente");
 %>

@@ -177,7 +177,7 @@ h2{
  .tabella-prod{
  
     font-family:arial,sans-serif;
-    border-radius:4px;
+     border-radius:4px;
 	border: 1px solid #e9f2c9;
     width: 100%;
     max-width: 1200px;
@@ -185,6 +185,9 @@ h2{
     padding: 0 20px;
     text-align:left;
  }
+
+
+ 
  
  .tabella-prod td a{
    

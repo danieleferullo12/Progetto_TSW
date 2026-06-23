@@ -75,9 +75,10 @@ public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
                 ProdottoBean p = elem.getProdotto();
                 
                 psDettaglio.setInt(1, idOrdineGenerato);     
-                psDettaglio.setInt(2, p.getIdProdotto());     
-                psDettaglio.setDouble(3, p.getPrezzo());      
-                psDettaglio.setInt(4, elem.getQuant());       
+                psDettaglio.setInt(2, p.getIdProdotto());
+                psDettaglio.setInt(3, elem.getQuant()); 
+                psDettaglio.setDouble(4, p.getPrezzo());      
+                      
                 
                 psDettaglio.executeUpdate();
             }
@@ -156,9 +157,9 @@ public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
 		    }
 		}
 	  
-	  public OrdineBean doRetreveByIdUtente(int idUtente) throws SQLException{
+	  public List<OrdineBean> doRetreveByIdUtente(int idUtente) throws SQLException{
 		  
-		  OrdineBean bean=null;
+		  List<OrdineBean> ordini = new LinkedList<>();
 		  String selectSQL="SELECT * FROM Ordine WHERE id_utente=?";
 		  
 		  try (Connection connection = ds.getConnection();
@@ -166,19 +167,20 @@ public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
 	            preparedStatement.setInt(1, idUtente);
 	         
 	            try (ResultSet rs = preparedStatement.executeQuery()) {
-	                if (rs.next()) {
+	                while (rs.next()) {
 	                	
-	                	bean= new OrdineBean();
+	                OrdineBean	bean= new OrdineBean();
 	                	
 	                	 bean.setIdOrdine(rs.getInt("id_ordine"));
 		                 bean.setDataOrdine(rs.getDate("data_ordine"));
 		                 bean.setStato(rs.getString("stato_ordine"));
 		                 bean.setTotale(rs.getDouble("totale"));
 		                 bean.setIdUtente(rs.getInt("id_utente"));
+		                 ordini.add(bean);
 	                }
 	            }
 	        }
-	        return bean;  
+	        return ordini;  
 		  
 	  }
 
