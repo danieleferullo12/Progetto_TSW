@@ -11,6 +11,7 @@
 <body>
 <jsp:include page="../Header.jsp"/>
 
+<h2>Repilogo Dei tuoi ordini</h2>
 
 <%  
    @SuppressWarnings("unchecked")
@@ -19,7 +20,7 @@
      if(ordini==null || ordini.isEmpty()){
 %>
 
-<div id="ordine-vuoto">
+<div class="vuoto">
 
 <p>Non hai effettuato nessun ordine</p>
 
@@ -27,7 +28,7 @@
 
 <%}else{%>
 
-<table id="tabella-ord">
+<table class="tabella-prod">
 <tr>
 <th>Data</th>
 <th>Stato</th>

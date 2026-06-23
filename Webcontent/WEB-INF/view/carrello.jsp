@@ -21,7 +21,7 @@
      if(cart==null || cart.getProd().isEmpty()){
 %>
 
-   <div class="carrello-vuoto">
+   <div class="vuoto">
      
      <p>Il tuo Carrello è vuoto, torna allo <a href="prodotto">shopping</a></p>
    

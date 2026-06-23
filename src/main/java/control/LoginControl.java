@@ -78,6 +78,7 @@ public class LoginControl extends HttpServlet {
 			if(utente.getEmail().equals("danieleferullo10@gmail.com")&&utente.getPasswordHash().equals("123")) {
 				
 				request.getSession().setAttribute("role","admin");
+				request.getSession().setAttribute("utente",utente);
 				response.sendRedirect(request.getContextPath() + "/admin/areaRiservata");
 				
 			}

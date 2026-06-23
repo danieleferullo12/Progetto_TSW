@@ -22,18 +22,18 @@
       String role=(String) session.getAttribute("role");
       if(role==null){
    %>
-    <li><a href="login">Login</a>
+    <li><a href="<%=request.getContextPath()%>/login"><span>Log</span>in</a>
     <%
         } else{
     %>
-       <li><a href="Logout">Logout</a>
-       <li><a href="common/profilo">Profilo</a>
+       <li><a href="<%=request.getContextPath()%>/Logout"><span>Log</span>out</a>
+       <li><a href="<%=request.getContextPath()%>/common/profilo"><span>Pro</span>filo</a>
     
     <%
        }
     %>
     
-    <li><a href="carrello">Carrello</a>
+    <li><a href="<%=request.getContextPath()%>/carrello"><span>Carr</span>ello</a>
    </ul>
    </div>
 

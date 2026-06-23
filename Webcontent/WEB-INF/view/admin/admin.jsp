@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Area Riservata</title>
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/style/style.css">
 </head>
 <body>
+ <jsp:include page="../Header.jsp"/>
 
 <p>Pagina dell'admin</p>
 

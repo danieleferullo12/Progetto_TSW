@@ -12,6 +12,7 @@
 <jsp:include page="Header.jsp"/>
 
 <% 
+@SuppressWarnings("unchecked")
 List<String> errors = (List<String>) request.getAttribute("errors");
 if (errors != null){
 	for (String error: errors){

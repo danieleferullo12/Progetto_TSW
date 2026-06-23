@@ -38,6 +38,7 @@
   
      
      <% 
+        @SuppressWarnings("unchecked")
         List<ProdottoBean> lista=(List<ProdottoBean>) request.getAttribute("prodotti");  
         
         if(lista!=null){
