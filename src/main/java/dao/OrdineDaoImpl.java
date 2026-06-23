@@ -50,7 +50,7 @@ public class OrdineDaoImpl implements OrdineDao{
 public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
 		
 		String insertSQL = "INSERT INTO Ordine (data_ordine,stato_ordine,totale,id_utente)VALUES (?,?,?,?)";
-		String dettaglioSQL="INSERT INTO Dettaglio_Ordine (id_ordine,id_prodotto,quantita,prezzo_unitario)VALUES (?,?,?,?)";
+		String dettaglioSQL="INSERT INTO Dettaglio_Ordine (id_ordine,id_prodotto,quantita,prezzo_unitario,nome_prodotto)VALUES (?,?,?,?,?)";
 		
 		
 		try(Connection connection = ds.getConnection();
@@ -78,7 +78,8 @@ public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
                 psDettaglio.setInt(1, idOrdineGenerato);     
                 psDettaglio.setInt(2, p.getIdProdotto());
                 psDettaglio.setInt(3, elem.getQuant()); 
-                psDettaglio.setDouble(4, p.getPrezzo());      
+                psDettaglio.setDouble(4, p.getPrezzo());
+                psDettaglio.setString(5,p.getNome());
                       
                 
                 psDettaglio.executeUpdate();
@@ -192,6 +193,7 @@ public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
 		                             dBean.setIdProdotto(rsDettaglio.getInt("id_prodotto"));
 		                             dBean.setQuantita(rsDettaglio.getInt("quantita"));
 		                             dBean.setPrezzoUnitario(rsDettaglio.getDouble("prezzo_unitario"));
+		                             dBean.setNomeProdotto(rsDettaglio.getString("nome_prodotto"));
 		                             
 		                             dettagli.add(dBean);
 		                         }

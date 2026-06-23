@@ -25,7 +25,7 @@ public class DettaglioOrdineImpl implements DettaglioOrdineDao{
 	@Override
 	public void doSave(DettaglioOrdineBean bean) throws SQLException{
 		
-		String insertSQL = "INSERT INTO Dettaglio_Ordine (id_ordine,id_prodotto,quantita,prezzo_unitario)VALUES (?,?,?,?)";
+		String insertSQL = "INSERT INTO Dettaglio_Ordine (id_ordine,id_prodotto,quantita,prezzo_unitario,nome_prodotto)VALUES (?,?,?,?,?)";
 		
 		try(Connection connection = ds.getConnection();
 				
@@ -34,6 +34,7 @@ public class DettaglioOrdineImpl implements DettaglioOrdineDao{
             preparedStatement.setInt(2, bean.getIdProdotto());
             preparedStatement.setInt(3, bean.getQuantita());
             preparedStatement.setDouble(4, bean.getPrezzoUnitario());
+            preparedStatement.setString(5,bean.getNomeProdotto());
             
             preparedStatement.executeUpdate();
         }
@@ -65,6 +66,7 @@ public class DettaglioOrdineImpl implements DettaglioOrdineDao{
 	                    bean.setIdProdotto(rs.getInt("id_prodotto"));
 	                    bean.setQuantita(rs.getInt("quantita"));
 	                    bean.setPrezzoUnitario(rs.getDouble("prezzo_unitario"));
+	                    bean.setNomeProdotto(rs.getString("nome_prodotto"));
 	                    
 	                }
 	            }
@@ -89,6 +91,7 @@ public class DettaglioOrdineImpl implements DettaglioOrdineDao{
                     bean.setIdProdotto(rs.getInt("id_prodotto"));
                     bean.setQuantita(rs.getInt("quantita"));
                     bean.setPrezzoUnitario(rs.getDouble("prezzo_unitario"));
+                    bean.setNomeProdotto(rs.getString("nome_prodotto"));
 	                dettagli.add(bean);
 	            }
 	        }
@@ -120,7 +123,7 @@ public class DettaglioOrdineImpl implements DettaglioOrdineDao{
 	  }
 	  
 	  public void doUpdate(DettaglioOrdineBean bean) throws SQLException {
-		    String sql = "UPDATE Utente SET id_ordine = ?, id_prodotto = ?, quantita = ?, prezzo_unitario=? WHERE id_dettaglio = ?";
+		    String sql = "UPDATE Utente SET id_ordine = ?, id_prodotto = ?, quantita = ?, prezzo_unitario=?,nome_prodotto=? WHERE id_dettaglio = ?";
 		    
 		    try (Connection con = ds.getConnection(); 
 		         PreparedStatement ps = con.prepareStatement(sql)) {
@@ -129,7 +132,9 @@ public class DettaglioOrdineImpl implements DettaglioOrdineDao{
 		        ps.setInt(2, bean.getIdProdotto());
 		        ps.setInt(3, bean.getQuantita());
 		        ps.setDouble(4, bean.getPrezzoUnitario());
-		        ps.setInt(5, bean.getIdDettaglio()); 
+		        ps.setString(5,bean.getNomeProdotto());
+		        ps.setInt(6, bean.getIdDettaglio()); 
+		        
 		        
 		        
 		        ps.executeUpdate();

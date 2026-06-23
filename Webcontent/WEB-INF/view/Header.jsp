@@ -27,6 +27,7 @@
         } else{
     %>
        <li><a href="Logout">Logout</a>
+       <li><a href="common/profilo">Profilo</a>
     
     <%
        }

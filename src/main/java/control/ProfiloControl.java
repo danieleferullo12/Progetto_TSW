@@ -53,7 +53,7 @@ public class ProfiloControl extends HttpServlet {
 			 System.err.println("Error:" + e.getMessage());	
 		}
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB_INF/view/common/profilo.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/view/common/profilo.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -62,7 +62,7 @@ public class ProfiloControl extends HttpServlet {
 		
 		List<OrdineBean> ordini=ordineDao.doRetreveByIdUtente(idUtente);
 		
-		request.getSession().setAttribute("ordini", ordini);
+		request.setAttribute("ordini", ordini);
 		
 		
 	}
