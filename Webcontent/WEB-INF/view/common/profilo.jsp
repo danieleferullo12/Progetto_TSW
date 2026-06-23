@@ -47,6 +47,7 @@
 
 </table>
  <%}%>
+<%} %>
 
 <jsp:include page="../Footer.jsp"/>
 </body>
