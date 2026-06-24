@@ -7,9 +7,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import jakarta.servlet.annotation.*;
 import javax.sql.DataSource;
 
 import dao.ProdottoDao;
@@ -18,6 +22,12 @@ import model.ProdottoBean;
 
 
 @WebServlet("/admin/areaRiservata")
+@MultipartConfig(
+    fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+    maxFileSize = 1024 * 1024 * 10,      // 10MB massimo per singolo file
+    maxRequestSize = 1024 * 1024 * 50    // 50MB massimo per l'intero form
+    )
+
 public class AdminArea extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -44,7 +54,7 @@ public class AdminArea extends HttpServlet {
 	}
 
 	
-	private void actions(HttpServletRequest request) {
+	private void actions(HttpServletRequest request)throws IOException,ServletException {
 		
 		String action=request.getParameter("action");
 		
@@ -80,20 +90,31 @@ public class AdminArea extends HttpServlet {
 	}
 	
 	
-	private void insertProduct(HttpServletRequest request)throws SQLException {
+	private void insertProduct(HttpServletRequest request)throws SQLException,IOException,ServletException {
 		
 		String nome=request.getParameter("nome");
 		double prezzo=Double.parseDouble(request.getParameter("prezzo"));
 		int quantita=Integer.parseInt(request.getParameter("quant_disp"));
-		String urlImg=request.getParameter("img");
 		int categoria=Integer.parseInt(request.getParameter("id_categ"));
 		
+		Part filePart=request.getPart("img");
+		String fileName=filePart.getSubmittedFileName();
+		
+		String uploadPath = getServletContext().getRealPath("") + File.separator + "images" + File.separator + "prodotti";
+		File uploadDir = new File(uploadPath);
+	    if (!uploadDir.exists()) {
+	        uploadDir.mkdir();
+	    }
+		
+	    String filePath = uploadPath + File.separator + fileName;
+	    filePart.write(filePath);
+	    
 		ProdottoBean prodotto=new ProdottoBean();
 		
 		prodotto.setNome(nome);
 		prodotto.setPrezzo(prezzo);
 		prodotto.setQuantitaDisp(quantita);
-		prodotto.setImmagineUrl(urlImg);
+		prodotto.setImmagineUrl(fileName);
 		prodotto.setIdCategoria(categoria);
 		
 		prodottoDao.doSave(prodotto);
