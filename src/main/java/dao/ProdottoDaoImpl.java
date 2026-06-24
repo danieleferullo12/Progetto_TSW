@@ -128,19 +128,18 @@ public class ProdottoDaoImpl implements ProdottoDao{
 	  }
 	  
 	  public void doUpdate(ProdottoBean bean) throws SQLException {
-		    String sql = "UPDATE Prodotto SET nome = ?, descrizione = ?, prezzo = ?, "
+		    String sql = "UPDATE Prodotto SET nome = ?,  prezzo = ?, "
 		               + "quantita_disponibile = ?, immagine_url = ?, id_categoria = ? WHERE id_prodotto = ?";
 		    
 		    try (Connection con = ds.getConnection(); 
 		         PreparedStatement ps = con.prepareStatement(sql)) {
 		        
 		        ps.setString(1, bean.getNome());
-		        ps.setString(2, bean.getDescrizione());
-		        ps.setDouble(3, bean.getPrezzo());
-		        ps.setInt(4, bean.getQuantitaDisp());
-		        ps.setString(5, bean.getImmagineUrl()); 
-		        ps.setInt(6, bean.getIdCategoria());
-		        ps.setInt(7, bean.getIdProdotto()); 
+		        ps.setDouble(2, bean.getPrezzo());
+		        ps.setInt(3, bean.getQuantitaDisp());
+		        ps.setString(4, bean.getImmagineUrl()); 
+		        ps.setInt(5, bean.getIdCategoria());
+		        ps.setInt(6, bean.getIdProdotto()); 
 		        
 		        ps.executeUpdate();
 		    }

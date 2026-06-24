@@ -24,14 +24,18 @@
    %>
     <li><a href="<%=request.getContextPath()%>/login"><span>Log</span>in</a>
     <%
-        } else{
+        } else if(role.equals("admin")){
     %>
        <li><a href="<%=request.getContextPath()%>/Logout"><span>Log</span>out</a>
        <li><a href="<%=request.getContextPath()%>/common/profilo"><span>Pro</span>filo</a>
-    
+       <li><a href="<%=request.getContextPath()%>/admin/areaRiservata">Area Riservata</a>
+       
     <%
-       }
+       }else if(role.equals("client")){
     %>
+       <li><a href="<%=request.getContextPath()%>/Logout"><span>Log</span>out</a>
+       <li><a href="<%=request.getContextPath()%>/common/profilo"><span>Pro</span>filo</a>
+     <%}%>  
     
     <li><a href="<%=request.getContextPath()%>/carrello"><span>Carr</span>ello</a>
    </ul>
