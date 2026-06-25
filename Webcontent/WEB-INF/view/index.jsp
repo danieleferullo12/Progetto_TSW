@@ -26,7 +26,7 @@
   <form action="prodotto" method="get">
   <label for="orderSelect">Ordina Per</label>
   
-  <select id="orderSelect">
+  <select  name="order" id="orderSelect">
   <option value="">Seleziona</option>
   <option value="prezzo">Prezzo:Crescente</option>
   <option value="prezzo DESC">Prezzo:Decrescente</option>

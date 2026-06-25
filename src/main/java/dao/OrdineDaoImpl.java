@@ -86,6 +86,55 @@ public void doSaveCart(OrdineBean bean,CarrelloBean cart) throws SQLException{
             }
         }
     }
+   
+    public List<OrdineBean> doRetrieveAllWithDetails()throws SQLException{
+    	
+    	List<OrdineBean> ordini = new LinkedList<>();
+    	String selectSQL = "SELECT * FROM Ordine ORDER BY data_ordine DESC"; 
+        String dettaglioSelect = "SELECT * FROM Dettaglio_Ordine WHERE id_ordine = ?";
+    	
+        try (Connection connection = ds.getConnection();
+        		PreparedStatement preparedStatement = connection.prepareStatement(selectSQL)) {
+          
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                while (rs.next()) {
+                	
+                OrdineBean	bean= new OrdineBean();
+                	
+                	 bean.setIdOrdine(rs.getInt("id_ordine"));
+	                 bean.setDataOrdine(rs.getDate("data_ordine"));
+	                 bean.setStato(rs.getString("stato_ordine"));
+	                 bean.setTotale(rs.getDouble("totale"));
+	                 bean.setIdUtente(rs.getInt("id_utente"));
+	                 
+	                 List<DettaglioOrdineBean> dettagli=new LinkedList<>();
+	                 
+	                 try (PreparedStatement psDettaglio = connection.prepareStatement(dettaglioSelect)) {
+	                     psDettaglio.setInt(1, bean.getIdOrdine()); 
+	                     
+	                     try (ResultSet rsDettaglio = psDettaglio.executeQuery()) {
+	                         while (rsDettaglio.next()) {
+	                             DettaglioOrdineBean dBean = new DettaglioOrdineBean();
+	                             
+	                             dBean.setIdOrdine(rsDettaglio.getInt("id_ordine"));
+	                             dBean.setIdProdotto(rsDettaglio.getInt("id_prodotto"));
+	                             dBean.setQuantita(rsDettaglio.getInt("quantita"));
+	                             dBean.setPrezzoUnitario(rsDettaglio.getDouble("prezzo_unitario"));
+	                             dBean.setNomeProdotto(rsDettaglio.getString("nome_prodotto"));
+	                             
+	                             dettagli.add(dBean);
+	                         }
+	                     }
+	                 }
+	                 bean.setDettagli(dettagli);
+	                 
+	                 ordini.add(bean);
+                }
+                
+            }
+        }
+    	return ordini;
+    }
 	
 	 @Override
 	    public  boolean doDelete(int code) throws SQLException {

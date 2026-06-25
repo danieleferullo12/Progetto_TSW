@@ -17,7 +17,7 @@
    UtenteBean utente=(UtenteBean) session.getAttribute("utente");
 %>
 
-<form id="checkout" action="checkout" method="post">
+<form id="reg" action="checkout" method="post">
 <div id="checkCont">
 
 <h2>Completa l'ordine</h2>
@@ -40,8 +40,14 @@
 <span id="errorInd"></span>
 </div>
 
+<div id="pag-field">
+<label for="pagamento">Numero Carta Di Credito</label>
+<input type="text" id="pagamento" name="carta"  onchange="validateForm(this, cartaPattern, document.getElementById('errorCart'), cartErr)">
+<span id="errorCart"></span>
+</div>
+
 <div id="button-check">
-<button type="submit" onclick="return validate()">Completa</button>
+<button type="submit" onclick="return validateCheck()">Completa</button>
 </div>
 
 

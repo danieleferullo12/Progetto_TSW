@@ -64,6 +64,13 @@
 <span id="errorInd"></span>
 </div>
 
+<div id="pag-field">
+<label for="pagamento">Numero Carta Di Credito</label>
+<input type="text" id="pagamento" name="carta"  onchange="validateForm(this, cartaPattern, document.getElementById('errorCart'), cartErr)">
+<span id="errorCart"></span>
+</div>
+
+
 <div id="button-log">
 <button type="submit" onclick="return validate()">Registrati</button>
 </div>

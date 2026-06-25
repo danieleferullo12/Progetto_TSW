@@ -11,5 +11,6 @@ public interface OrdineDao extends Dao<OrdineBean>{
 	
 	public List<OrdineBean> doRetreveByIdUtente(int idUtente) throws SQLException;
 	public void doSaveCart(OrdineBean bean, CarrelloBean cart) throws SQLException;
+	public List<OrdineBean> doRetrieveAllWithDetails()throws SQLException;
 
 }

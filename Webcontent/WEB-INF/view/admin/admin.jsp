@@ -116,7 +116,7 @@ for(ProdottoBean p: lista){
 <input name="nome" id="nome" type="text" maxlength="20" required><br> 
 
 <label for="prezzo">Prezzo:</label><br>
-<input name="prezzo" id="prezzo" type="number" min="0" value="0" required><br>
+<input name="prezzo" id="prezzo" type="number" step="0.01" required><br>
 
 <label for="quantita">Quantita:</label>
 <br><input name="quant_disp" id="quantita" type="number" min="1" value="1" required><br>
@@ -130,6 +130,8 @@ for(ProdottoBean p: lista){
 </form>
 </div>
 
+<h2>Ordini effettuati</h2>
+<p>Visualizza la pagina dedicata agli <a href="<%=request.getContextPath()%>/admin/OrdiniAdmin">ordini</a></p>
 
 <jsp:include page="../Footer.jsp"/>
 </body>
