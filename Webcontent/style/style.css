@@ -147,6 +147,16 @@ h2{
 	
 }
 
+.prezzo{
+	
+	font-size:medium;
+	color:#B1BF41;
+	font-weight:bold;
+	
+}
+
+
+
 .product-card a:hover{
 	
 	background-color:#b1bf41;

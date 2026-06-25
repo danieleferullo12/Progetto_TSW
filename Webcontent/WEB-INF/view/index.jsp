@@ -49,7 +49,7 @@
         <div class="product-card">
           <img src="images/prodotti/<%=p.getImmagineUrl()%>" alt="<%=p.getNome()%>" width="215px" height="215px">
           <h3><%=p.getNome()%></h3>
-          <p id="prezzo"><%=p.getPrezzo()%>€<p>
+          <p class="prezzo">Da <%=p.getPrezzo()%> €<p>
           <a href="carrello?action=add&code=<%=p.getIdProdotto()%>">Aggiungi al Carrello</a>   
         </div>
       <% 

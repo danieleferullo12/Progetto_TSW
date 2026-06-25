@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Checkout</title>
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/style/style.css">
-<script src="scripts/validate.js"></script>
+<script src="<%=request.getContextPath()%>/scripts/validate.js"></script>
 </head>
 <body>
 <jsp:include page="../Header.jsp"/>
