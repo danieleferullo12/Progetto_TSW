@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, model.*" %>    
+<%@ page import="java.util.*, model.*" %>     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Punto Fit</title>
+<title>PuntoFit</title>
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/style/style.css">
 </head>
 <body>
-
 <jsp:include page="Header.jsp"/>
 
 <section id="main">
@@ -19,14 +18,14 @@
   </section>
   
   
-  <h2>Scopri i prodotti in Evidenza</h2>
+  <h2>Scopri le novita</h2>
   
   <section class="prodotti">
  
      
      <% 
         @SuppressWarnings("unchecked")
-        List<ProdottoBean> lista=(List<ProdottoBean>) request.getAttribute("prodotti");  
+        List<ProdottoBean> lista=(List<ProdottoBean>) request.getAttribute("Listaprodotti");  
         
         if(lista!=null){
         
@@ -49,5 +48,4 @@
 
 <jsp:include page="Footer.jsp"/>
 </body>
-
 </html>

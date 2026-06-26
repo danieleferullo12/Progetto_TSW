@@ -1,7 +1,8 @@
 package dao;
 
 import java.sql.SQLException;
-import java.util.Collection;
+
+import java.util.List;
 
 public interface Dao <T>{
 	
@@ -13,7 +14,7 @@ public interface Dao <T>{
 	
     public T doRetrieveByKey(int code) throws SQLException;
 	
-	public Collection<T> doRetrieveAll(String order) throws SQLException;
+	public List<T> doRetrieveAll(String order) throws SQLException;
 
 
 }

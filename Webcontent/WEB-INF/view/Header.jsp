@@ -43,10 +43,10 @@
 
   <nav>
   <ul>
-   <li><a href="">PROTEINE</a>
-   <li><a href="">ABBIGLIAMENTO</a>
-   <li><a href="">ACCESSORI</a>
-   <li><a href="">ALIMENTAZIONE</a>
+   <li><a href="categoria?categoria=1">PROTEINE</a>
+   <li><a href="categoria?categoria=2">ABBIGLIAMENTO</a>
+   <li><a href="categoria?categoria=3">ACCESSORI</a>
+   <li><a href="categoria?categoria=4">ALIMENTAZIONE</a>
   
   </ul>
   </nav>

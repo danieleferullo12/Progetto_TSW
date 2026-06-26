@@ -75,6 +75,34 @@ public class ProdottoDaoImpl implements ProdottoDao{
 	        return bean;
 	 }
 	 
+	 public List<ProdottoBean> doRetrieveLatest(int limit)throws SQLException{
+		 
+		 List<ProdottoBean> prodotti = new LinkedList<>();
+	        String selectSQL ="SELECT * FROM Prodotto ORDER BY id_prodotto DESC LIMIT ?";
+	        
+	        try (Connection connection = ds.getConnection();
+	        		PreparedStatement preparedStatement = connection.prepareStatement(selectSQL)){
+	        		preparedStatement.setInt(1,limit);	
+	        			
+	        	try(ResultSet rs = preparedStatement.executeQuery()){ 
+	            while (rs.next()) {
+	                ProdottoBean bean = new ProdottoBean();
+	                bean.setIdProdotto(rs.getInt("id_prodotto"));
+               bean.setNome(rs.getString("nome"));
+               bean.setDescrizione(rs.getString("descrizione"));
+               bean.setPrezzo(rs.getDouble("prezzo"));
+               bean.setQuantitaDisp(rs.getInt("quantita_disponibile"));
+               bean.setImmagineUrl(rs.getString("immagine_url"));
+               bean.setIdCategoria(rs.getInt("id_categoria"));
+	            prodotti.add(bean);
+	            }
+	        }
+	     } 	
+	        return prodotti;    
+		
+	 }
+	 
+	 
 	  @Override
 	    public List<ProdottoBean> doRetrieveAll(String order) throws SQLException {
 	        List<ProdottoBean> prodotti = new LinkedList<>();
