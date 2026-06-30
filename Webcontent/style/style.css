@@ -414,3 +414,81 @@ h2{
 	margin-left:500px;
 }
 
+/*PRODOTTO*/
+
+.container-prodotto {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    align-items: center;
+}
+
+.container-prodotto img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.prodotto-immagine-wrapper {
+    flex: 1 1 450px; 
+    text-align: center;
+}
+
+.prodotto-dettagli {
+    flex: 1 1 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-prodotto h1 {
+    font-size: 2.2rem;
+    color: #333333;
+    margin: 0;
+    font-weight: 700;
+}
+
+.container-prodotto .prezzo {
+    font-size: 1.8rem;
+    color: #B1BF41; 
+    font-weight: 600;
+    margin: 0;
+}
+
+.container-prodotto button {
+    background-color: #333333; 
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.prodotto-non-disponibile {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.3rem;
+    color: #999999;
+    width: 100%;
+}
+
+.container-prodotto .descrizione {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666666;
+    margin: 10px 0 20px 0;
+}

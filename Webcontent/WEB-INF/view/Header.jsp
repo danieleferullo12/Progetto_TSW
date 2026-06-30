@@ -10,8 +10,8 @@
 
  <div id="search-bar">
  
-  <form action="RicercaServlet" method="Get">
-  <input type="text" name="search" placeholder="Cerca nel negozio...">
+  <form action="ricerca" method="Get">
+  <input type="text" name="search" placeholder="Cerca nel negozio..." required>
   <button type="submit">Cerca</button>
   </form>
   

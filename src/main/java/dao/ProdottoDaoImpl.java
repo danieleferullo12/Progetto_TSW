@@ -102,6 +102,34 @@ public class ProdottoDaoImpl implements ProdottoDao{
 		
 	 }
 	 
+	 public ProdottoBean doRetrieveByName(String nome)throws SQLException{
+		 
+		 String sql = "SELECT * FROM prodotto WHERE nome LIKE ? LIMIT 1";
+		  
+		 ProdottoBean bean=null;
+		 
+		    try (Connection con = ds.getConnection(); 
+		         PreparedStatement ps = con.prepareStatement(sql)) {
+		        
+		        ps.setString(1, "%" + nome + "%"); 
+		        
+		        try (ResultSet rs = ps.executeQuery()) {
+		            if (rs.next()) {
+		            	bean=new ProdottoBean();
+		                bean.setIdProdotto(rs.getInt("id_prodotto"));
+	                    bean.setNome(rs.getString("nome"));
+	                    bean.setDescrizione(rs.getString("descrizione"));
+	                    bean.setPrezzo(rs.getDouble("prezzo"));
+	                    bean.setQuantitaDisp(rs.getInt("quantita_disponibile"));
+	                    bean.setImmagineUrl(rs.getString("immagine_url"));
+	                    bean.setIdCategoria(rs.getInt("id_categoria"));
+		    
+		            }
+		        }
+		    }
+		    return bean;
+	 }
+	 
 	 
 	  @Override
 	    public List<ProdottoBean> doRetrieveAll(String order) throws SQLException {
