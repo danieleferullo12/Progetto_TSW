@@ -8,9 +8,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
+
+import org.json.JSONObject;
 
 import model.CarrelloBean;
 import dao.ProdottoDao;
@@ -40,12 +43,34 @@ public class CarrelloControl extends HttpServlet {
 		if(cart==null) {
 			
 			cart=new CarrelloBean();
-		request.getSession().setAttribute("cart", cart);
+		    request.getSession().setAttribute("cart", cart);
 		}
 		
 		actions(request,cart);
 		request.getSession().setAttribute("cart", cart);
 		
+		String action=request.getParameter("action");
+		
+		if(action!=null) {
+			
+			String xRequestedWith=request.getHeader("X-Requested-With");
+			
+		if("XMLHttpRequest".equals(xRequestedWith)) {	
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+		     
+			PrintWriter out=response.getWriter();
+			
+			int totaleProd=cart.getQuantTotale();
+			
+			JSONObject json = new JSONObject();
+			
+			json.put("nuovoTotale",totaleProd);
+			out.print(json.toString());
+			return;
+		}
+		
+	}
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/view/carrello.jsp");
 		dispatcher.forward(request, response);
 	}

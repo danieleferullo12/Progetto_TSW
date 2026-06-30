@@ -9,8 +9,7 @@ public class CarrelloBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private List<ElementoCarBean> prodotti;
-	
-	
+		
 	public CarrelloBean() {
 		
 		prodotti=new ArrayList<ElementoCarBean>();
@@ -29,7 +28,6 @@ public class CarrelloBean implements Serializable{
 		}
 		
 		prodotti.add(new ElementoCarBean(prod,1));
-		
 	}
    
 	public void deleteSingleProd(ProdottoBean prod) {
@@ -63,7 +61,6 @@ public class CarrelloBean implements Serializable{
 			if(elem.getProdotto().getIdProdotto()==prod.getIdProdotto()) {
 				
 				prodotti.remove(elem);
-				
 				return;
 			}
 			
@@ -77,4 +74,16 @@ public class CarrelloBean implements Serializable{
 		return prodotti;
 	}
 	
+	
+	public int getQuantTotale() {
+		
+		int totale=0;
+		
+		for(ElementoCarBean elem:prodotti) {
+			
+			totale+=elem.getQuant();
+		}
+		
+		return totale;
+	}
 }
