@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style/style.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Il tuo Carrello</title>
 </head>
 <body>
@@ -59,7 +60,7 @@
     			 totale+= totaleProdotto;
      %>
      <tr>
-       <td><img src="images/prodotti/<%=p.getImmagineUrl()%>" width="85" height="85" alt="<%=p.getNome()%>"></td>
+       <td><img src="images/prodotti/<%=p.getImmagineUrl()%>" alt="<%=p.getNome()%>"></td>
        <td><%=p.getNome()%></td>
        <td><%=String.format("%.2f €", p.getPrezzo()) %></td>
        <td><%=q %></td> 

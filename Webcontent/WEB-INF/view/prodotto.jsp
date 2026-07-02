@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>PuntoFit</title>
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/style/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <jsp:include page="Header.jsp"/>

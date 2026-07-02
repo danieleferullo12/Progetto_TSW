@@ -4,7 +4,8 @@
 /*HEADER*/
 
 #logo a img{
-	  height: 70px;
+	  height: auto;
+	  max-width:100%;
 	  width:380px; 
 }
 
@@ -22,6 +23,7 @@
 	
 	border-radius:15px;
 	width:350px;
+	max-width:100%;
 	height:30px;
 	border-style:solid;
 	border-color:#0D0D0D;
@@ -102,6 +104,122 @@ a:hover{
 	color:#0D0D0D;
 }
 
+
+@media screen and (max-width:992px){
+	header {
+        display: flex;
+        flex-direction: column; 
+        text-align: center;
+        gap: 20px; 
+        padding: 15px 10px;
+    }
+	
+	
+	#search-bar, #actions {
+        position: static; 
+        transform: none;
+        left: auto;
+        top: auto;
+        right: auto;
+        width: 100%; 
+    }
+    
+    #logo a img {
+        width: 360px; 
+    }
+	
+	#search-bar form {
+        display: flex;
+        justify-content:center;
+        gap: 5px;
+        width: 100%;
+        padding: 0 10px;
+    }
+	
+	#search-bar input {
+        max-width: 350px;
+    }
+
+    #actions ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 15px;
+    }
+
+    #actions ul li {
+        padding-left: 0;
+    }
+
+    
+    nav ul li {
+        display: block; 
+        margin: 15px 0;
+    }
+	
+}
+
+
+
+
+
+
+@media screen and (max-width:768px){
+	header {
+        display: flex;
+        flex-direction: column; 
+        text-align: center;
+        gap: 20px; 
+        padding: 15px 10px;
+    }
+	
+	
+	#search-bar, #actions {
+        position: static; 
+        transform: none;
+        left: auto;
+        top: auto;
+        right: auto;
+        width: 100%; 
+    }
+    
+    #logo a img {
+        width: 280px; 
+    }
+	
+	#search-bar form {
+        display: flex;
+        justify-content:center;
+        gap: 5px;
+        width: 100%;
+        padding: 0 10px;
+    }
+	
+	#search-bar input {
+        max-width: 280px;
+    }
+
+    #actions ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 15px;
+    }
+
+    #actions ul li {
+        padding-left: 0;
+    }
+
+    
+    nav ul li {
+        display: block; 
+        margin: 15px 0;
+    }
+	
+}
+
+
+
 /*INDEX*/
 
 h2{
@@ -122,7 +240,8 @@ h2{
 
 .hero-banner img {
     width: 100%;       
-    height: 100%;        
+    height: 100%;  
+    object-fit:cover;      
 }
 	
 
@@ -157,7 +276,7 @@ h2{
 
 
 
-.product-card a:hover{
+.product-card button:hover{
 	
 	background-color:#b1bf41;
 }
@@ -175,9 +294,55 @@ h2{
     padding: 15px;
     box-shadow: 0 2px 5px #d0d98b;
     box-sizing: border-box; 
+    
+   
 }
  
+ .product-card img{
  
+  max-width:100%;
+  height:auto;
+  
+ }
+ 
+ .product-card button{
+ 
+  color:#f2f2f2;
+  background-color:#0D0D0D;
+  border:none;
+  width:50%;
+  
+ }
+ 
+ 
+ 
+ 
+ @media screen and (max-width: 992px) {
+    .hero-banner {
+        height: 350px; 
+    }
+ }
+ 
+ @media screen and (max-width: 576px) {
+    h2 {
+        text-align: center;
+        font-size: 1.5rem; 
+        padding: 0 10px;
+    }
+
+    .hero-banner {
+        height: 200px; 
+    }
+
+    .prodotti {
+        padding: 0 15px; 
+    }
+
+
+    
+}
+ 
+
  /*FOOTER*/
  #footer{
  
@@ -202,6 +367,7 @@ h2{
     
     text-decoration:none;
     color:#B1BF41;
+    padding: 50px 20px;
     
  }
  
@@ -233,6 +399,66 @@ h2{
    padding-left:5px;
    
  }
+ 
+ .tabella-prod img{
+ 
+    max-width: 80px;
+    height: auto;
+    border-radius: 4px;
+ 
+ 
+ }
+ 
+ 
+ @media screen and (max-width: 768px) {
+    
+    #titolo {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .tabella-prod, 
+    .tabella-prod tbody, 
+    .tabella-prod tr {
+        display: block;
+        width: 100%;
+    }
+
+    .tabella-prod thead {
+        display: none;
+    }
+
+    .tabella-prod tr {
+        background-color: #f9fbf0;
+        border: 1px solid #e9f2c9;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .tabella-prod td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border: none; 
+        border-bottom: 1px solid #e9f2c9; 
+    }
+
+    
+    .tabella-prod td a {
+        font-size: 1.2rem;
+        padding-left: 0;
+    }
+    
+    .tabella-prod img {
+        max-width: 60px;
+    }
+}
+ 
+ 
+ 
  
  /*CHECKOUT*/
  #repilogo{
@@ -295,7 +521,8 @@ h2{
  
  #logCont{
    max-width:450px;
-   height:310px;
+   min-height:310px;
+   height:auto;
    margin:50px auto; 
    padding:30px;
    border: 1px solid #e9f2c9;
@@ -308,7 +535,8 @@ h2{
  #regCont{
    
    max-width:450px;
-   height:370px;
+   min-height:370px;
+   height:auto;
    margin:50px auto; 
    padding:30px;
    border: 1px solid #e9f2c9;
@@ -320,8 +548,9 @@ h2{
 	
 	border-radius:4px;
 	border: 1px solid #e9f2c9;
-	width:350px;
-	height:30px;
+	width: 100%;       
+    max-width: 350px;  
+    height: 35px;
 }
 
 #nome-field,#cognome-field,#email-field,#pass-field,#tel-field,#ind-field,#pag-field{
@@ -334,41 +563,45 @@ h2{
 	
 	border-radius:4px;
 	border: 1px solid #e9f2c9;
-	width:350px;
-	height:30px;
+	width: 100%;       
+    max-width: 350px;  
+    height: 35px;
 	
 }
 #tel-field input{
 	
 	border-radius:4px;
 	border: 1px solid #e9f2c9;
-	width:350px;
-	height:30px;
+	width: 100%;       
+    max-width: 350px;  
+    height: 35px;
 	
 }
 #ind-field input{
 	
 	border-radius:4px;
 	border: 1px solid #e9f2c9;
-	width:350px;
-	height:30px;
-	
+	width: 100%;       
+    max-width: 350px;  
+    height: 35px;
 }
  
 #email-field input{
 	
 	border-radius:4px;
 	border: 1px solid #e9f2c9;
-	width:350px;
-	height:30px;
+	width: 100%;       
+    max-width: 350px;  
+    height: 35px;
 }
 
 #pass-field input{
 	
 	border-radius:4px;
 	border: 1px solid #e9f2c9;
-	width:350px;
-	height:30px;
+	width: 100%;       
+    max-width: 350px;  
+    height: 35px;
 	
 }
 
@@ -376,12 +609,14 @@ h2{
 	
 	border-radius:4px;
 	border: 1px solid #e9f2c9;
-	width:350px;
-	height:30px;
+	width: 100%;       
+    max-width: 350px;  
+    height: 35px;
 }
 #button-log button{
 	
 	width: 100%;
+	max-width:350px;
     padding: 12px;
     background-color: #b1bf41;
     color: white;
@@ -407,12 +642,29 @@ h2{
 	font-family:arial,sans-serif;
 	
 }
-/*ADMIN*/
 
-#admin-prod,#dettagli{
-	
-	margin-left:500px;
+@media screen and (max-width: 576px) {
+    
+    #logCont, #regCont {
+        width: 90%;      
+        margin: 20px auto; 
+        padding: 20px;     
+    }
+
+    
+    #nome-field input, 
+    #cognome-field input, 
+    #tel-field input, 
+    #ind-field input, 
+    #email-field input, 
+    #pass-field input, 
+    #pag-field input,
+    #button-log button {
+        max-width: 100%; 
+    }
 }
+
+
 
 /*PRODOTTO*/
 
@@ -420,9 +672,8 @@ h2{
     max-width: 1100px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #F2F2F2;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-wrap: wrap; 
     gap: 40px; 
@@ -452,7 +703,7 @@ h2{
 
 .container-prodotto h1 {
     font-size: 2.2rem;
-    color: #333333;
+    color: #0D0D0D;
     margin: 0;
     font-weight: 700;
 }
@@ -465,8 +716,8 @@ h2{
 }
 
 .container-prodotto button {
-    background-color: #333333; 
-    color: #ffffff;
+    background-color:#0D0D0D; 
+    color:  #F2F2F2;
     border: none;
     padding: 15px 30px;
     font-size: 1.1rem;
@@ -478,17 +729,11 @@ h2{
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-.prodotto-non-disponibile {
-    text-align: center;
-    padding: 50px;
-    font-size: 1.3rem;
-    color: #999999;
-    width: 100%;
-}
+
 
 .container-prodotto .descrizione {
-    font-size: 1.1rem;
+    font-family:arial,sans-serif;
     line-height: 1.6;
-    color: #666666;
+    color:#0D0D0D;
     margin: 10px 0 20px 0;
-}
+ }
