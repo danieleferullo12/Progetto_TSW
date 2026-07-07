@@ -23,9 +23,9 @@ import model.ProdottoBean;
 
 @WebServlet("/admin/areaRiservata")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024 * 2, // 2MB
-    maxFileSize = 1024 * 1024 * 10,      // 10MB massimo per singolo file
-    maxRequestSize = 1024 * 1024 * 50    // 50MB massimo per l'intero form
+    fileSizeThreshold = 1024 * 1024 * 2, 
+    maxFileSize = 1024 * 1024 * 10,      
+    maxRequestSize = 1024 * 1024 * 50    
     )
 
 public class AdminArea extends HttpServlet {
