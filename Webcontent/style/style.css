@@ -424,7 +424,7 @@ h2{
         width: 100%;
     }
 
-    .tabella-prod thead {
+    .tabella-prod th{
         display: none;
     }
 

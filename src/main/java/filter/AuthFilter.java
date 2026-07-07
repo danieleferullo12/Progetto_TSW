@@ -16,7 +16,6 @@ public class AuthFilter extends HttpFilter {
 	@Override
 	public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		String path = request.getServletPath();
 			
 		HttpSession session=request.getSession(false);
 		
@@ -31,11 +30,9 @@ public class AuthFilter extends HttpFilter {
 		
 		if(role!=null) {
 			
-			if(path.startsWith("/admin/")) {
-				
+			
 				autorizzato=role.equals("admin");
 				
-			}
 		 }
 		 if(autorizzato) {
 			   

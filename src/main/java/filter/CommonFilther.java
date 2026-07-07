@@ -16,7 +16,7 @@ public class CommonFilther extends HttpFilter {
 	@Override
 	public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		String path = request.getServletPath();
+		
 			
 		HttpSession session=request.getSession(false);
 		
@@ -31,11 +31,11 @@ public class CommonFilther extends HttpFilter {
 		
 		if(role!=null) {
 			
-			if(path.startsWith("/common/")) {
+			
 				
 				autorizzato=role.equals("client") || role.equals("admin");
 				
-			}
+			
 		 }
 		 if(autorizzato) {
 			   
